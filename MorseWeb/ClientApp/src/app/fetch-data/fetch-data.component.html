@@ -1,0 +1,19 @@
+<h1>Morse Code Translater</h1>
+
+<p>This component demonstrates fetching english into morse code translated from the server, simply begin typing and click submit.</p>
+<p><input #translateWords type="text" [pattern]="'^[a-zA-Z \-\']$'" placeholder="SOS" /></p>
+<p><input type="submit" (click)="onclick(translateWords)" /></p>
+<p *ngIf="!morseString"><em>Loading...</em></p>
+
+<table class='table' *ngIf="morseString">
+  <thead>
+    <tr>
+      <th>Morse Words (From:{{originalText}} To:{{morseString}})</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of morseWords">
+      <td>{{ m }}</td>
+    </tr>
+  </tbody>
+</table>
